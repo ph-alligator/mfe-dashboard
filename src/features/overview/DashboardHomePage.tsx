@@ -1,5 +1,13 @@
 import { Link } from 'react-router-dom';
-import { Button, Card, CardContent, CardHeader, CardTitle } from '@ph-alligator/ui';
+import {
+  Badge,
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  Progress,
+} from '@ph-alligator/ui';
 
 export function DashboardHomePage() {
   return (
@@ -19,8 +27,12 @@ export function DashboardHomePage() {
         ].map((stat) => (
           <Card key={stat.label}>
             <CardHeader className="pb-2">
-              <p className="text-sm text-muted-foreground">{stat.label}</p>
+              <div className="flex items-center justify-between">
+                <p className="text-sm text-muted-foreground">{stat.label}</p>
+                <Badge variant="secondary">Live</Badge>
+              </div>
               <CardTitle className="text-3xl">{stat.value}</CardTitle>
+              <Progress value={72} className="mt-3 h-2" />
             </CardHeader>
           </Card>
         ))}
